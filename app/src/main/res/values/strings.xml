@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">GPS-Ortung</string>
+
+    <string name="beruehen_fuer_berechnung">Touch this text to start new distance calculation.</string>
+
+
+    <string name="dialog_location_manager_nicht_gefunden">Internal Error:\nCould not obtain Location Manager.</string>
+
+    <string name="dialog_interner_fehler_berechtigung">Internal Error when requesting permissions.</string>
+
+    <string name="dialog_berechtigung_verweigert">Permission for location denied, therefore cannot perform distance calculation.</string>
+
+    <string name="dialog_ergebnis">Distance to home location:\n</string>
+
+    <string name="dialog_titel_fehlermeldung">Error</string>
+
+    <string name="dialog_titel_ergebnis">Result</string>
+
+    <string name="dialog_button_ok">Ok</string>
+
+</resources>
