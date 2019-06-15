@@ -67,7 +67,7 @@ public class MainActivity extends WearableActivity
 
         _heimatLocation = new Location("DummyProvider");
         _heimatLocation.setLongitude(  8.4043 ); // geografische Länge (positives Vorzeichen, also östlich)
-        _heimatLocation.setLatitude ( 49.014  ); // geografische Breite (positives Vorzeichen, also nördlich)
+        _heimatLocation.setLatitude ( 49.0140 ); // geografische Breite (positives Vorzeichen, also nördlich)
 
         Log.i(TAG4LOGGING, "Heimat-Location-Objekt erzeugt.");
     }
@@ -113,7 +113,7 @@ public class MainActivity extends WearableActivity
      *
      * @param permissionsArray  Array angeforderter Runtime-Permissions.
      *
-     * @param grantResultsArry Ergebnis für angeforderte Runtime-Permissions.
+     * @param grantResultsArry  Ergebnis für angeforderte Runtime-Permissions.
      */
     @Override
     public void onRequestPermissionsResult(int      requestCode,
@@ -130,7 +130,7 @@ public class MainActivity extends WearableActivity
 
         if (permissionsArray.length != 1) {
 
-            Log.e(TAG4LOGGING, "permissionsArray nicht genau ein Element.");
+            Log.e(TAG4LOGGING, "PermissionsArray hat nicht genau ein Element.");
             zeigeDialog( getString( R.string.dialog_interner_fehler_berechtigung ), true );
             return;
         }
