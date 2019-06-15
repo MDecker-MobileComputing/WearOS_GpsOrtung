@@ -2,7 +2,7 @@
 
     <string name="app_name">GPS-Ortung</string>
 
-    <string name="beruehen_fuer_berechnung">Touch this text to start new distance calculation.</string>
+    <string name="beruehen_fuer_berechnung">Touch this text to calculate the distance to your home town.</string>
 
 
     <string name="dialog_location_manager_nicht_gefunden">Internal Error:\nCould not obtain Location Manager.</string>

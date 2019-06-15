@@ -199,7 +199,7 @@ public class MainActivity extends WearableActivity
         int distanzKilometer = (int)(distanzMeter / 1000.0);
 
 
-        zeigeDialog( getString(R.string.dialog_ergebnis) + distanzKilometer + "km", false);
+        zeigeDialog( getString(R.string.dialog_ergebnis) + distanzKilometer + " km", false);
     }
 
 
