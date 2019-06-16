@@ -215,6 +215,9 @@ public class MainActivity extends WearableActivity
 
     /**
      * Methode aus Interface {@link LocationListener}.
+     * <br>
+     * Diese Methode ist ab API-Level 29 "deprecated"  und wird deshalb auf Geräten mit dieser
+     * Android-Version oder neuer nie aufgerufen werden.
      *
      * @param provider  Location-Provider.
      *
