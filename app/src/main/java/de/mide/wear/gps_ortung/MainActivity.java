@@ -83,6 +83,13 @@ public class MainActivity extends WearableActivity
     @Override
     public void onClick(View view) {
 
+        // Sicherstellen, dass nicht mehrere Ortungsvorgänge gleichzeitig laufen.
+        if (_progressBar.getVisibility() == View.VISIBLE) {
+            Log.i(TAG4LOGGING, "Es läuft schon ein Ortungsvorgang.");
+            return;
+        }
+
+
         int apiLevel = android.os.Build.VERSION.SDK_INT;
         Log.i(TAG4LOGGING, "API-Level=" + apiLevel);
 

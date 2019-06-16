@@ -21,7 +21,6 @@
             android:id="@+id/berechnungStartenTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
             android:textSize="20sp"
             android:text="@string/beruehen_fuer_berechnung" />
 
@@ -29,7 +28,8 @@
             android:id="@+id/fortschrittsanzeige"
             android:visibility="invisible"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical" />
 
     </FrameLayout>
 
