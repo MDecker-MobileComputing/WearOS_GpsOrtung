@@ -10,11 +10,11 @@
     tools:context=".MainActivity"
     tools:deviceIds="wear">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:boxedEdges="all">
+        app:boxedEdges="all"
+        tools:ignore="MissingPrefix"><!-- "tools:ignore=...", siehe https://stackoverflow.com/a/53686106/1364368 -->
 
         <TextView
             android:id="@+id/berechnungStartenTextView"
