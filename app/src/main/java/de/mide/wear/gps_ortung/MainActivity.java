@@ -1,6 +1,7 @@
 package de.mide.wear.gps_ortung;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -170,6 +171,7 @@ public class MainActivity extends WearableActivity
      * <b>Bevor diese Methode aufgerufen wird muss sichergestellt sein, dass die App die
      * Berechtigung <i>android.permission.ACCESS_FINE_LOCATION</i> hat!</b>
      */
+    @SuppressLint("MissingPermission")
     protected void ortungAnfordern() {
 
         LocationManager locationManager = null;
@@ -182,15 +184,11 @@ public class MainActivity extends WearableActivity
         }
 
 
-        // Nochmal abfragen, ob wir gerade die Berechtigung haben, um den Compiler zufriedenzustellen
-        if ( checkSelfPermission( Manifest.permission.ACCESS_FINE_LOCATION ) == PackageManager.PERMISSION_GRANTED ) {
+        locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this, null);
+        // letztes Argument looper=null (hiermit kann Thread angegeben werden, in dem die Callback-
+        // Methode onLocationChanged() ausgeführt werden soll.
 
-            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this, null);
-            // letztes Argument looper=null (hiermit kann Thread angegeben werden, in dem Call-Back ausgeführt werden soll)
-            // Callback-Methode: onLocationChanged
-
-            _progressBar.setVisibility( View.VISIBLE );
-        }
+        _progressBar.setVisibility( View.VISIBLE );
     }
 
 
