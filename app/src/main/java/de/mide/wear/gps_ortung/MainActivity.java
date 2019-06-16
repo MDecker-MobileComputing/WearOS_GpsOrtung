@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -28,16 +29,15 @@ public class MainActivity extends WearableActivity
     /** Tag für Log-Messages von dieser App. */
     protected static final String TAG4LOGGING = "GpsOrtung";
 
-    /** UI-Element, löst bei Berührung die Berechnung aus. */
-    protected TextView _startBerechnungTextView = null;
-
+    /** Wiederkennungs-Code für asynchrone Abfrage, ob App aktuell die Runtime-Permission hat. */
+    public static final int REQUEST_CODE_LOCATION_PERMISSIONS = 1234;
 
     /** Koordinaten von Heimat-Ort, zu dem die aktuelle Entfernung berechnet wird,
      *  wird in Methode {@link MainActivity#fuelleHeimatLocation()}. */
     protected Location _heimatLocation = null;
 
-    /** Wiederkennungs-Code für asynchrone Abfrage, ob App aktuell die Runtime-Permission hat. */
-    public static final int REQUEST_CODE_LOCATION_PERMISSIONS = 1234;
+    /** Fortschrittsanzeige; wird nur während warten auf GPS-Ortung auf sichtbar geschaltet. */
+    protected ProgressBar _progressBar = null;
 
 
     /**
@@ -50,8 +50,10 @@ public class MainActivity extends WearableActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        _startBerechnungTextView = findViewById(R.id.berechnungStartenTextView);
-        _startBerechnungTextView.setOnClickListener(this);
+        TextView tv = findViewById(R.id.berechnungStartenTextView);
+        tv.setOnClickListener(this);
+
+        _progressBar = findViewById(R.id.fortschrittsanzeige);
 
         fuelleHeimatLocation();
 
@@ -179,6 +181,8 @@ public class MainActivity extends WearableActivity
             locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, this, null);
             // letztes Argument looper=null (hiermit kann Thread angegeben werden, in dem Call-Back ausgeführt werden soll)
             // Callback-Methode: onLocationChanged
+
+            _progressBar.setVisibility( View.VISIBLE );
         }
     }
 
@@ -198,6 +202,7 @@ public class MainActivity extends WearableActivity
 
         int distanzKilometer = (int)(distanzMeter / 1000.0);
 
+        _progressBar.setVisibility( View.INVISIBLE );
 
         zeigeDialog( getString(R.string.dialog_ergebnis) + distanzKilometer + " km", false);
     }

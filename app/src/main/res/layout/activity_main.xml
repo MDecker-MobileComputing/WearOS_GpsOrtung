@@ -10,20 +10,27 @@
     tools:context=".MainActivity"
     tools:deviceIds="wear">
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:boxedEdges="all"
-        tools:ignore="MissingPrefix"><!-- "tools:ignore=...", siehe https://stackoverflow.com/a/53686106/1364368 -->
+        tools:ignore="MissingPrefix">
+        <!--"tools:ignore=...", siehe https://stackoverflow.com/a/53686106/1364368 -->
 
         <TextView
             android:id="@+id/berechnungStartenTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
             android:textSize="20sp"
             android:text="@string/beruehen_fuer_berechnung" />
 
-    </ScrollView>
+        <ProgressBar
+            android:id="@+id/fortschrittsanzeige"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </android.support.wear.widget.BoxInsetLayout>
