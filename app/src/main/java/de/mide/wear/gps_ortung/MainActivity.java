@@ -69,7 +69,7 @@ public class MainActivity extends WearableActivity
     protected void fuelleHeimatLocation() {
 
         _heimatLocation = new Location("DummyProvider");
-        _heimatLocation.setLongitude(  8.4043 ); // geografische Länge (positives Vorzeichen, also östlich)
+        _heimatLocation.setLongitude(  8.4043 ); // geografische Länge  (positives Vorzeichen, also östlich)
         _heimatLocation.setLatitude ( 49.0140 ); // geografische Breite (positives Vorzeichen, also nördlich)
 
         Log.i(TAG4LOGGING, "Heimat-Location-Objekt erzeugt.");
@@ -86,6 +86,7 @@ public class MainActivity extends WearableActivity
 
         // Sicherstellen, dass nicht mehrere Ortungsvorgänge gleichzeitig laufen.
         if (_progressBar.getVisibility() == View.VISIBLE) {
+
             Log.i(TAG4LOGGING, "Es läuft schon ein Ortungsvorgang.");
             return;
         }
@@ -268,10 +269,14 @@ public class MainActivity extends WearableActivity
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         if(istFehler) {
+            
             dialogBuilder.setTitle(getString(R.string.dialog_titel_fehlermeldung));
+            
         } else {
+            
             dialogBuilder.setTitle(getString(R.string.dialog_titel_ergebnis));
         }
+        
         dialogBuilder.setMessage(nachricht);
         dialogBuilder.setPositiveButton( getString(R.string.dialog_button_ok), null);
 
