@@ -170,7 +170,7 @@ public class MainActivity extends WearableActivity
      * <br><br>
      *
      * <b>Bevor diese Methode aufgerufen wird muss sichergestellt sein, dass die App die
-     * Berechtigung <i>android.permission.ACCESS_FINE_LOCATION</i> hat!</b>
+     * Berechtigung {@code android.permission.ACCESS_FINE_LOCATION} hat!</b>
      */
     @SuppressLint("MissingPermission")
     protected void ortungAnfordern() {
@@ -258,7 +258,7 @@ public class MainActivity extends WearableActivity
 
 
     /**
-     * Methode um Fehlermeldung in Dialog anzuzeigen.
+     * Methode um Text in Dialog anzuzeigen (normale Nachricht oder Fehlermeldung).
      *
      * @param nachricht  Anzuzeigende Nachricht.
      *
